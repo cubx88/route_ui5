@@ -1,0 +1,119 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "hanakeyss.hanaselfservice",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach"
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "hanakeyss.hanaselfservice.view.hanalogin",
+			"type": "JS",
+			"async": true,
+			"id": "hana"
+		},
+		"dependencies": {
+			"minUI5Version": "1.65.6",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "hanakeyss.hanaselfservice.i18n.i18n"
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "JS",
+				"async": true,
+				"viewPath": "hanakeyss.hanaselfservice.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [
+				{
+					"name": "hanamain",
+					"pattern": "hanapattern",
+					"target": "hana"
+				},
+				{
+					"name": "login",
+					"pattern": "loginpattern",
+					"target": "hanalogin"
+				},
+				{
+					"name": "three",
+					"pattern": "thirdpattern",
+					"target": "three"
+				}
+			],
+			"targets": {
+				"hana": {
+					"viewType": "JS",
+					"viewId": "hanaid",
+					"viewName": "hana",
+					"viewLevel": 0
+				},
+				"hanalogin": {
+					"viewType": "JS",
+					"viewId": "loginid",
+					"viewName": "hanalogin",
+					"viewLevel": 1
+				},
+				"three": {
+					"viewType": "XML",
+					"viewId": "threeid",
+					"viewName": "three",
+					"viewLevel": 2
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}
